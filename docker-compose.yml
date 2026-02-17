@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  letta-discord-bot:
+    build: .
+    container_name: letta-discord-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    ports:
+      - "3001:3001"
+    volumes:
+      - ~/.letta-discord-bot/.persist:/app/data
+    
